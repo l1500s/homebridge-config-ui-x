@@ -11,6 +11,10 @@ All notable changes to `homebridge-config-ui-x` will be documented in this file.
 - updates to the `es.json` language file (#2235) (@AxelDreemurr)
 - implement and allow switching to scoped plugins
 
+### Other Changes
+
+- migrate `@zajsf/*` to `@ng-formworks/*` for plugin schema forms
+
 ### Homebridge Dependencies
 
 - `@homebridge/hap-client` @ `v1.10.2`
