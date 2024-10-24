@@ -82,7 +82,7 @@
     "@fastify/helmet": "11.1.1",
     "@fastify/multipart": "8.3.0",
     "@fastify/static": "7.0.4",
-    "@homebridge/hap-client": "1.10.2",
+    "@homebridge/hap-client": "2.0.4",
     "@homebridge/node-pty-prebuilt-multiarch": "0.11.14",
     "@nestjs/axios": "3.1.2",
     "@nestjs/common": "10.4.8",
@@ -121,11 +121,11 @@
     "unzipper": "0.12.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.9.1",
+    "@antfu/eslint-config": "^3.9.2",
     "@nestjs/testing": "^10.4.8",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash": "^4.17.13",
-    "@types/node": "^22.9.0",
+    "@types/node": "^22.9.1",
     "@types/node-schedule": "^2.1.7",
     "@types/passport-jwt": "^4.0.1",
     "@types/semver": "^7.5.8",
@@ -135,7 +135,6 @@
     "@types/unzipper": "^0.10.10",
     "@vitest/coverage-v8": "^2.1.5",
     "concurrently": "^9.1.0",
-    "eslint": "^9.15.0",
     "eslint-plugin-format": "^0.1.2",
     "form-data": "^4.0.1",
     "nodemon": "^3.1.7",
@@ -146,11 +145,6 @@
     "typescript": "^5.6.3",
     "unplugin-swc": "^1.5.1",
     "vitest": "^2.1.5"
-  },
-  "overrides": {
-    "@homebridge/hap-client": {
-      "axios": "1.7.7"
-    }
   },
   "maintainers": [
     {
