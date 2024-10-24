@@ -11,6 +11,8 @@ All notable changes to `homebridge-config-ui-x` will be documented in this file.
 - updates to the `es.json` language file (#2235) (@AxelDreemurr)
 - implement and allow switching to scoped plugins
 - fix widget config saving on dashboard
+- use native language for validation messages where available
+  - currently available for `de` `en` `es` `fr` `it` `pt` `zh`
 
 ### Other Changes
 
