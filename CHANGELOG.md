@@ -38,6 +38,7 @@ Plugin developers:
 - migrate `@zajsf/*` to `@ng-formworks/*` for plugin schema forms
 - retire use of `pnpm` and code references
 - check for service mode when querying child bridge status
+- enable strict config validation for the UI
 
 ### Homebridge Dependencies
 
