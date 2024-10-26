@@ -39,6 +39,7 @@ Plugin developers:
 - retire use of `pnpm` and code references
 - check for service mode when querying child bridge status
 - enable strict config validation for the UI
+- bump the default node version from 20 to 22
 
 ### Homebridge Dependencies
 
