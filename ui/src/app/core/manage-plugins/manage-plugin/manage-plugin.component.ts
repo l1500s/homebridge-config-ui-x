@@ -225,10 +225,11 @@ export class ManagePluginComponent implements OnInit, OnDestroy {
       }).subscribe({
         next: () => {
           this.$activeModal.close()
-          this.$modal.open(RestartHomebridgeComponent, {
+          const ref = this.$modal.open(RestartHomebridgeComponent, {
             size: 'lg',
             backdrop: 'static',
           })
+          ref.componentInstance.fullRestart = true
         },
         error: (error) => {
           this.actionFailed = true
