@@ -40,6 +40,7 @@ Plugin developers:
 - check for service mode when querying child bridge status
 - enable strict config validation for the UI
 - bump the default node version from 20 to 22
+- perform a full restart when updating `homebridge`
 
 ### Homebridge Dependencies
 
