@@ -43,6 +43,7 @@ Plugin developers:
 - update screenshots (for readme file)
 - retire use of `pnpm` and code references
 - enable strict config validation for the UI
+- bump the default node version from 20 to 22
 
 ### Homebridge Dependencies
 
