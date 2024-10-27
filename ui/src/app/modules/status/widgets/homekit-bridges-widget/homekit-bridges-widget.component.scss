@@ -1,3 +1,9 @@
+.flex-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .hb-status-icon {
   font-size: 20px;
 }
@@ -5,11 +11,5 @@
 .hb-status-item {
   @media (max-width: 767px) {
     width: 100%;
-  }
-}
-
-::ng-deep body.dark-mode {
-  .card-link-title {
-    color: #ffffff !important;
   }
 }

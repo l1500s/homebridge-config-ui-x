@@ -50,7 +50,7 @@ export class WidgetVisibilityComponent implements OnInit {
         hideOnMobile: false,
       },
       {
-        name: 'Child Bridge Status',
+        name: this.$translate.instant('child_bridge.bridges'),
         component: 'ChildBridgeWidgetComponent',
         hidden: !this.$settings.env.serviceMode,
         cols: 5,

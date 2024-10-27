@@ -15,7 +15,6 @@ export class HomebridgeStatusWidgetComponent implements OnInit {
 
   public homebridgePkg = {} as any
   public homebridgeUiPkg = {} as any
-  public homebridgeStatus = {} as any
   public homebridgePluginStatus = [] as any
   public homebridgePluginStatusDone = false as boolean
 
@@ -31,13 +30,9 @@ export class HomebridgeStatusWidgetComponent implements OnInit {
 
   async ngOnInit() {
     this.io = this.$ws.getExistingNamespace('status')
-    this.io.socket.on('homebridge-status', (data) => {
-      this.homebridgeStatus = data
-    })
 
     this.io.connected.subscribe(async () => {
       await Promise.all([
-        this.getHomebridgeStatus(),
         this.checkHomebridgeVersion(),
         this.checkHomebridgeUiVersion(),
         this.getOutOfDatePlugins(),
@@ -46,20 +41,11 @@ export class HomebridgeStatusWidgetComponent implements OnInit {
 
     if (this.io.socket.connected) {
       await Promise.all([
-        this.getHomebridgeStatus(),
         this.checkHomebridgeVersion(),
         this.checkHomebridgeUiVersion(),
         this.getOutOfDatePlugins(),
       ])
     }
-
-    this.io.socket.on('disconnect', () => {
-      this.homebridgeStatus.status = 'down'
-    })
-  }
-
-  async getHomebridgeStatus() {
-    this.homebridgeStatus = await firstValueFrom(this.io.request('get-homebridge-status'))
   }
 
   async checkHomebridgeVersion() {

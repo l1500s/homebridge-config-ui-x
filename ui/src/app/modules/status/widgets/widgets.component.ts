@@ -1,10 +1,10 @@
 import { AccessoriesWidgetComponent } from '@/app/modules/status/widgets/accessories-widget/accessories-widget.component'
-import { ChildBridgeWidgetComponent } from '@/app/modules/status/widgets/child-bridge-widget/child-bridge-widget.component'
 import { ClockWidgetComponent } from '@/app/modules/status/widgets/clock-widget/clock-widget.component'
 import { CpuWidgetComponent } from '@/app/modules/status/widgets/cpu-widget/cpu-widget.component'
 import { HapQrcodeWidgetComponent } from '@/app/modules/status/widgets/hap-qrcode-widget/hap-qrcode-widget.component'
 import { HomebridgeLogsWidgetComponent } from '@/app/modules/status/widgets/homebridge-logs-widget/homebridge-logs-widget.component'
 import { HomebridgeStatusWidgetComponent } from '@/app/modules/status/widgets/homebridge-status-widget/homebridge-status-widget.component'
+import { HomekitBridgesWidgetComponent } from '@/app/modules/status/widgets/homekit-bridges-widget/homekit-bridges-widget.component'
 import { MemoryWidgetComponent } from '@/app/modules/status/widgets/memory-widget/memory-widget.component'
 import { NetworkWidgetComponent } from '@/app/modules/status/widgets/network-widget/network-widget.component'
 import { SystemInfoWidgetComponent } from '@/app/modules/status/widgets/system-info-widget/system-info-widget.component'
@@ -43,7 +43,7 @@ export class WidgetsComponent implements OnInit, OnDestroy {
     WeatherWidgetComponent,
     AccessoriesWidgetComponent,
     ClockWidgetComponent,
-    ChildBridgeWidgetComponent,
+    ChildBridgeWidgetComponent: HomekitBridgesWidgetComponent,
   }
 
   private componentRef
