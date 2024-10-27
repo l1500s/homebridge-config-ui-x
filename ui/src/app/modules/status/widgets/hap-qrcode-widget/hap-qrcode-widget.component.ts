@@ -13,6 +13,7 @@ export class HapQrcodeWidgetComponent implements OnInit {
 
   public pin = 'Loading...'
   public setupUri: string | null = null
+  public paired: boolean = false
   public qrCodeHeight: number
   public qrCodeWidth: number
 
@@ -32,6 +33,7 @@ export class HapQrcodeWidgetComponent implements OnInit {
 
       if (data.setupUri) {
         this.setupUri = data.setupUri
+        this.paired = data.paired
       }
     })
 

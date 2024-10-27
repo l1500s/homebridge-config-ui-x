@@ -100,6 +100,7 @@ export class StatusService {
 
         if (data?.setupUri) {
           this.serverService.setupCode = data.setupUri
+          this.serverService.paired = data.paired
         }
 
         this.homebridgeStatusChange.next(this.homebridgeStatus)

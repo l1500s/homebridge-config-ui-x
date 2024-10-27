@@ -48,6 +48,7 @@ export class StatusComponent implements OnInit, OnDestroy {
         enabled: this.isLayoutUnlocked(),
       },
       gridType: 'verticalFixed',
+      margin: 8,
       minCols: 20,
       maxCols: 20,
       minRows: 20,

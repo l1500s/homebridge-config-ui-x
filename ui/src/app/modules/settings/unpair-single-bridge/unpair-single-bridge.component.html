@@ -31,7 +31,17 @@
           <span>
             {{ item.displayName }} ({{ item._main ? 'Homebridge' : (item._category | titlecase) }})
             <br />
-            <small class="grey-text">{{ item._username }}</small>
+            <small class="grey-text">
+              <i
+                class="fas fa-fw fa-link"
+                [ngClass]="{
+                  'green-text': item._isPaired,
+                  'red-text': !item._isPaired
+                }"
+              ></i>
+              {{ (item._isPaired ? 'status.widget.qr_paired' : 'status.widget.qr_unpaired') | translate }} &middot; {{
+              item._username }}
+            </small>
           </span>
           <button
             class="btn btn-danger"
