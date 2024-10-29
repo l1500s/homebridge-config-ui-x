@@ -46,6 +46,7 @@ Plugin developers:
 - enable strict config validation for the UI
 - bump the default node version from 20 to 22
 - perform a full restart when updating `homebridge`
+- make terminal enabled by default on new macOS hb-service installs
 
 ### Homebridge Dependencies
 
