@@ -41,6 +41,7 @@ export class ServerService {
   private readonly accessoryInfoPath: string
 
   public setupCode: string | null = null
+  public paired: boolean = false
 
   constructor(
     private readonly configService: ConfigService,
