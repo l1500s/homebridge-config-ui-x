@@ -100,6 +100,7 @@ export class StatusService {
 
         if (data?.setupUri) {
           this.serverService.setupCode = data.setupUri
+          this.serverService.paired = data.paired
         }
 
         this.homebridgeStatusChange.next(this.homebridgeStatus)
@@ -271,6 +272,7 @@ export class StatusService {
     return {
       pin: this.configService.homebridgeConfig.bridge.pin,
       setupUri: await this.serverService.getSetupCode(),
+      paired: this.serverService.paired,
     }
   }
 
@@ -337,6 +339,7 @@ export class StatusService {
       port: this.configService.homebridgeConfig.bridge.port,
       pin: this.configService.homebridgeConfig.bridge.pin,
       setupUri: await this.serverService.getSetupCode(),
+      paired: this.serverService.paired,
       packageVersion: this.configService.package.version,
       status: await this.checkHomebridgeStatus(),
     }

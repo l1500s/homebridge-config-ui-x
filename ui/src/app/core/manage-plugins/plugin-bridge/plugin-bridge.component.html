@@ -57,23 +57,28 @@
               </ngb-alert>
             </div>
             <div *ngIf="deviceInfo[item._bridge?.username]" class="mt-3">
-              <div *ngIf="!deviceInfo[item._bridge?.username]._isPaired" class="w-100 d-flex flex-column">
+              <div class="w-100 d-flex flex-column text-center">
                 <app-qrcode
                   [data]="deviceInfo[item._bridge?.username]._setupCode"
                   class="mx-auto my-2"
-                  style="width: 180px; height: 180px"
+                  style="width: 120px; height: 120px"
                 >
                 </app-qrcode>
-                <p class="mx-auto text-center">{{ deviceInfo[item._bridge?.username].pincode }}</p>
-                <p class="grey-text mx-auto text-center" style="max-width: 400px">
-                  {{ 'status.code_scan' | translate }}
+                <p class="mx-auto my-1">{{ deviceInfo[item._bridge?.username].pincode }}</p>
+                <p class="grey-text mx-auto small mb-1" style="max-width: 400px">
+                  <i
+                    class="fas fa-fw fa-link"
+                    [ngClass]="{
+                      'green-text': deviceInfo[item._bridge?.username]._isPaired,
+                      'red-text': !deviceInfo[item._bridge?.username]._isPaired
+                    }"
+                  ></i>
+                  {{ (deviceInfo[item._bridge?.username]._isPaired ? 'status.widget.qr_paired' :
+                  'status.widget.qr_unpaired') | translate }}
+                  <span *ngIf="!deviceInfo[item._bridge?.username]._isPaired">
+                    &middot; {{ 'status.code_scan' | translate }}
+                  </span>
                 </p>
-              </div>
-              <div *ngIf="deviceInfo[item._bridge?.username]._isPaired">
-                <div class="text-center">
-                  <i class="fa fa-fw fa-check-circle primary-text mb-4" style="font-size: 75px"></i>
-                  <p>{{ 'child_bridge.bridge_paired' | translate }}</p>
-                </div>
               </div>
               <div *ngIf="$settings.env.serviceMode">
                 <div

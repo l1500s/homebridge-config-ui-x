@@ -29,6 +29,7 @@ export class RestartHomebridgeComponent {
     this.$api.put('/platform-tools/hb-service/set-full-service-restart-flag', {}).subscribe({
       next: () => {
         this.$router.navigate(['/restart'])
+        this.$activeModal.close()
       },
       error: (error) => {
         console.error(error)

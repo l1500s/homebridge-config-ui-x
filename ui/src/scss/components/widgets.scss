@@ -12,15 +12,15 @@ gridster-preview {
 }
 
 .widget-value-parent-wrap {
-  min-width: 100px;
+  min-width: 85px;
 
   .widget-value {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 300;
     line-height: 1.2;
 
     @media (max-width: 1500px) {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
 
     @media (max-width: 1300px) {
