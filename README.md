@@ -5,10 +5,9 @@
 
 # Homebridge UI
 
-[![npm](https://badgen.net/npm/v/homebridge-config-ui-x/latest)](https://www.npmjs.com/package/homebridge-config-ui-x)
+[![npm](https://badgen.net/npm/v/homebridge-config-ui-x/latest?label=latest)](https://www.npmjs.com/package/homebridge-config-ui-x)
+[![npm](https://badgen.net/npm/v/homebridge-config-ui-x/beta?label=beta)](https://www.npmjs.com/package/homebridge-config-ui-x)
 [![npm](https://badgen.net/npm/dt/homebridge-config-ui-x?label=downloads)](https://www.npmjs.com/package/homebridge-config-ui-x)
-[![Discord](https://badgen.net/discord/online-members/C87Pvq3?icon=discord&label=discord)](https://discord.gg/C87Pvq3)
-[![Donate](https://badgen.net/badge/donate/paypal/yellow)](https://paypal.me/oznu)
 
 :gb: :de: :fr: :poland: :czech_republic: :ru: :cn: :hungary: :jp: :es: :netherlands: :tr: :it: :bulgaria: :sweden: :norway: :finland: :slovenia: :brazil: :portugal: :indonesia: :kr: :macedonia: :thailand: :israel: :ukraine:
 
@@ -59,11 +58,11 @@ This shows an overview of your Homebridge system. The dashboard is widget-based 
 
 ### Plugin Screen
 
-This shows you the currently installed plugins and allows you to install, remove and upgrade plugins.
+This shows you the currently installed plugins and allows you to install, configure, update and remove plugins.
 
 ![Plugin](screenshots/homebridge-config-ui-x-darkmode-plugins.png?2020-01-07)
 
-You can configure supported plugins using the graphical settings editor, removing the need to manually edit the `config.json`. Over 165 popular plugins have implemented support for this feature.
+You can configure supported plugins using the graphical settings editor, or by editing the config JSON directly.
 
 ![Plugin Settings](screenshots/homebridge-config-ui-x-darkmode-alexa-settings.png?2020-01-07)
 
@@ -85,32 +84,6 @@ This shows you the Homebridge accessories for all the Homebridge instances on yo
 
 ![Accessories](screenshots/homebridge-config-ui-x-accessories.png?2020-01-07)
 
-## Supported Browsers
-
-The following browsers are supported by the Homebridge UI:
-
-- Chrome - latest
-- Edge - latest
-- Firefox - latest
-- Safari - 2 most recent major versions
-- iOS - 2 most recent major versions
-
-MS Internet Explorer (any version) is not supported!
-
-## Supported Node.js Version
-
-The Homebridge UI follows the same Node.js support schedule as Homebridge. See the [How-To-Update-Node.js](https://github.com/homebridge/homebridge/wiki/How-To-Update-Node.js) page in the Homebridge wiki for currently supported versions.
-
-You can check your current versions using these commands:
-
-```shell
-# check node version
-node -v
-
-# check npm version
-npm -v
-```
-
 ## Plugin Development
 
 The https://developers.homebridge.io website contains the Homebridge API reference, available service and characteristic types, and plugin examples.
@@ -118,33 +91,6 @@ The https://developers.homebridge.io website contains the Homebridge API referen
 The [Homebridge Plugin Template](https://github.com/homebridge/homebridge-plugin-template) project provides a base you can use to create your own _platform_ plugin.
 
 There are many existing plugins you can study; you might start with the [Homebridge Example Plugins](https://github.com/homebridge/homebridge-examples) or a plugin that already implements the device type you need.
-
-## Common Issues
-
-### Errors during installation
-
-Make sure you installed the package with `sudo` and used the `--unsafe-perm` flag. Most installation errors can be fixed by removing the Homebridge UI and reinstalling:
-
-```shell
-# cleanup
-sudo npm uninstall -g homebridge-config-ui-x
-
-# reinstall
-sudo npm install -g --unsafe-perm homebridge-config-ui-x
-```
-
-Make sure you are running [supported versions of node and npm](#supported-nodejs-and-npm-versions).
-
-### Home App Says Accessory Already Added
-
-To fix this, [Reset Homebridge](https://github.com/homebridge/homebridge/wiki/Connecting-Homebridge-To-HomeKit#how-to-reset-homebridge).
-
-### My iOS App Can't Find Homebridge
-
-Try the following:
-
-1. Swap between the `Bonjour HAP` and `Ciao` mDNS Advertiser options. See [the wiki](https://github.com/homebridge/homebridge/wiki/mDNS-Options) for more details.
-2. iOS DNS cache has gone stale or gotten misconfigured. To fix this, turn airplane mode on and back off to flush the DNS cache.
 
 ## Community
 

@@ -37,6 +37,7 @@ Plugin developers:
 - show pairing status for bridges around the ui
 - refactor status and child bridge widgets
 - update default dashboard layout
+- consistent labels for sensor-type accessories
 
 ### Other Changes
 
