@@ -37,6 +37,7 @@ Plugin developers:
 - updates to the `ko.json` language file (#2251) (@alphaorderly)
 - implement and allow switching to scoped plugins
 - add plugin config validation functionality
+- refactor status and child bridge widgets
 
 ### Other Changes
 
