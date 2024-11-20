@@ -3,17 +3,35 @@ import { InformationComponent } from '@/app/core/components/information/informat
 import { MobileDetectService } from '@/app/core/mobile-detect.service'
 import { NotificationService } from '@/app/core/notification.service'
 import { SettingsService } from '@/app/core/settings.service'
-import { Component, Input, OnInit, Renderer2 } from '@angular/core'
-import { NavigationEnd, Router } from '@angular/router'
+import { NgClass, NgOptimizedImage } from '@angular/common'
+import { Component, inject, Input, OnInit, Renderer2 } from '@angular/core'
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { TranslateService } from '@ngx-translate/core'
+import { TranslatePipe, TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
+  imports: [
+    NgOptimizedImage,
+    NgClass,
+    RouterLink,
+    RouterLinkActive,
+    TranslatePipe,
+  ],
 })
 export class SidebarComponent implements OnInit {
+  router = inject(Router)
+  translate = inject(TranslateService)
+  $auth = inject(AuthService)
+  $settings = inject(SettingsService)
+  private $md = inject(MobileDetectService)
+  private $modal = inject(NgbModal)
+  private $notification = inject(NotificationService)
+  private $translate = inject(TranslateService)
+  private renderer = inject(Renderer2)
+
   @Input() isExpanded = false
 
   public rPiCurrentlyUnderVoltage = false
@@ -21,17 +39,9 @@ export class SidebarComponent implements OnInit {
   public isMobile: any = false
   public freezeMenu = false
 
-  constructor(
-    public router: Router,
-    public translate: TranslateService,
-    public $auth: AuthService,
-    public $settings: SettingsService,
-    private $md: MobileDetectService,
-    private $modal: NgbModal,
-    private $notification: NotificationService,
-    private $translate: TranslateService,
-    private renderer: Renderer2,
-  ) {
+  constructor() {
+    const router = this.router
+
     this.isMobile = this.$md.detect.mobile()
 
     // ensure the menu closes when we navigate
