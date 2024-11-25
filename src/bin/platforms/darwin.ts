@@ -1,6 +1,6 @@
 import type { PathLike } from 'fs-extra'
+import { execSync, spawnSync } from 'node:child_process'
 
-import { execSync } from 'node:child_process'
 import { homedir, release, userInfo } from 'node:os'
 import { dirname, resolve } from 'node:path'
 import process from 'node:process'
@@ -269,8 +269,21 @@ export class DarwinInstaller extends BasePlatform {
       // clean up
       await remove(archivePath)
 
-      // rebuild / fix perms
-      await this.rebuild(true)
+      // Run the rebuild with the new Node.js version
+      const rebuildResult = spawnSync('node', ['./dist/bin/hb-service.js', 'rebuild', '-all'], {
+        cwd: process.env.UIX_BASE_PATH,
+        stdio: 'inherit', // Inherit input/output streams
+        shell: true, // Use shell to execute commands
+      })
+
+      // console.log('Status code: ' + JSON.stringify(rebuildResult, null, 2));
+
+      if (rebuildResult.status !== 0) {
+        // console.error('Failed to rebuild Node.js modules');
+        // console.log('Status code: ' + JSON.stringify(rebuildResult, null, 2));
+        this.hbService.logger(`Failed to update Node.js: ${rebuildResult.stderr}`, 'fail')
+        process.exit(1)
+      }
 
       // restart
       if (await pathExists(this.plistPath)) {
